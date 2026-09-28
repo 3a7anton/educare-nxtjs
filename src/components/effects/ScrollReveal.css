@@ -1,0 +1,11 @@
+.scroll-reveal-container {
+  display: block;
+  perspective: 1000px;
+}
+
+.scroll-reveal-word {
+  display: inline-block;
+  white-space: pre;
+  will-change: opacity, transform, filter;
+  transition: none;
+}

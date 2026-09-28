@@ -1,0 +1,32 @@
+.shiny-text {
+  display: inline-block;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-repeat: no-repeat;
+  will-change: background-position;
+  font-family: inherit;
+  letter-spacing: inherit;
+}
+
+.shiny-text.pause-hover:hover {
+  animation-play-state: paused !important;
+}
+
+@keyframes shiny-sweep-left {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes shiny-sweep-right {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}

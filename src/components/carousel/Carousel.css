@@ -1,0 +1,207 @@
+.rb-carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.rb-carousel-stage {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+}
+
+.rb-carousel-card {
+  position: absolute;
+  width: 380px;
+  max-width: 90vw;
+  height: 430px;
+  background: #FFFFFF;
+  border-radius: 24px;
+  border: 1px solid rgba(197, 155, 39, 0.25);
+  box-shadow: 0 16px 40px -10px rgba(30, 58, 95, 0.12), 0 0 1px 1px rgba(197, 155, 39, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  user-select: none;
+  cursor: grab;
+  will-change: transform, opacity;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rb-carousel-card:active {
+  cursor: grabbing;
+}
+
+.rb-carousel-card.active {
+  border-color: rgba(197, 155, 39, 0.6);
+  box-shadow: 0 20px 50px -10px rgba(197, 155, 39, 0.3), 0 0 0 1px rgba(197, 155, 39, 0.4);
+}
+
+.rb-card-media {
+  width: 100%;
+  height: 190px;
+  background: linear-gradient(135deg, #FAF8F5 0%, #F0EAE1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(197, 155, 39, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.rb-card-media img {
+  max-width: 82%;
+  max-height: 82%;
+  object-fit: contain;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 4px 12px rgba(30, 58, 95, 0.08));
+}
+
+.rb-carousel-card:hover .rb-card-media img {
+  transform: scale(1.05);
+}
+
+.rb-card-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(30, 58, 95, 0.9);
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(197, 155, 39, 0.3);
+}
+
+.rb-card-body {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.rb-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-primary-blue);
+  margin-bottom: 0.6rem;
+  line-height: 1.25;
+}
+
+.rb-card-desc {
+  font-size: 0.93rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.rb-card-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-primary-blue);
+  transition: all 0.25s ease;
+  width: fit-content;
+}
+
+.rb-card-action:hover {
+  color: var(--color-gold-border);
+  transform: translateX(4px);
+}
+
+.rb-carousel-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.rb-nav-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(197, 155, 39, 0.3);
+  color: var(--color-primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  box-shadow: 0 4px 15px rgba(30, 58, 95, 0.08);
+  transition: all 0.25s ease;
+}
+
+.rb-nav-btn:hover {
+  background: var(--color-primary-blue);
+  color: #FFFFFF;
+  border-color: var(--color-primary-blue);
+  box-shadow: 0 6px 18px rgba(30, 58, 95, 0.2);
+  transform: scale(1.06);
+}
+
+.rb-indicators {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.rb-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: rgba(30, 58, 95, 0.2);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.rb-dot.active {
+  width: 28px;
+  background: var(--color-gold-border);
+}
+
+@media (max-width: 767px) {
+  .rb-carousel-stage {
+    height: 420px;
+  }
+  .rb-carousel-card {
+    width: min(84vw, 320px);
+    height: 390px;
+    border-radius: 20px;
+  }
+  .rb-card-media {
+    height: 160px;
+    padding: 1rem;
+  }
+  .rb-card-body {
+    padding: 1.25rem;
+  }
+  .rb-card-title {
+    font-size: 1.18rem;
+  }
+  .rb-card-desc {
+    font-size: 0.86rem;
+    -webkit-line-clamp: 3;
+    margin-bottom: 0.75rem;
+  }
+}
